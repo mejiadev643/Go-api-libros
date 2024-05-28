@@ -8,3 +8,13 @@ Para este proyecto se han utilizado los paquetes
 - https://gorm.io/
 
 Y librerias nativas del lenguaje Golang
+
+Para levantar los servicios ejecutar el siguiente comando
+
+```bash
+    go run main.go
+```
+Para construir el proyecto una vez terminado 
+```bash
+    go build main.go
+```

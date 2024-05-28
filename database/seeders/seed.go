@@ -2,7 +2,7 @@ package seeders
 
 import (
 	"log"
-	"github.com/mejiadev643/models"
+	"github.com/mejiadev643/app/models"
 	"gorm.io/gorm"
 )
 
