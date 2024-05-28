@@ -2,8 +2,10 @@ package routes
 
 import (
 	"github.com/gorilla/mux"
-	"github.com/mejiadev643/routes/login"
+	"github.com/mejiadev643/routes/autor"
+	"github.com/mejiadev643/routes/editorial"
 	"github.com/mejiadev643/routes/genero"
+	"github.com/mejiadev643/routes/login"
 )
 
 func RegisterRoutes( r *mux.Router) {//aqui se registran todas las rutas que se usaran en la aplicacion
@@ -15,5 +17,11 @@ func RegisterRoutes( r *mux.Router) {//aqui se registran todas las rutas que se 
 
 	//ruta de genero
 	genero.Routes(r.PathPrefix("/genero").Subrouter())
+	
+	//ruta de editorial
+	editorial.Routes(r.PathPrefix("/editorial").Subrouter())
+
+	//ruta de autor
+	autor.Routes(r.PathPrefix("/autor").Subrouter())
 
 }

@@ -7,6 +7,7 @@ type User struct {
 	Password       string        `gorm:"column:password" json:"-"`
 	Super_password string        `gorm:"column:super_password" json:"-"`
 	Last_conection string        `gorm:"column:last_connection" json:"last_connection"`
+	Deleted        bool          `gorm:"column:deleted;default:false" json:"-" `
 	Descriptions   []Description `gorm:"foreignKey:Id_user"`
 }
 

@@ -11,5 +11,5 @@ func Routes( r *mux.Router) {
 	r.HandleFunc("/", generocontroller.GeneroCreate).Methods("POST")
 	r.HandleFunc("/{id}", generocontroller.GeneroShow).Methods("GET")
 	r.HandleFunc("/{id}", generocontroller.GeneroUpdate).Methods("PUT")
-	r.HandleFunc("/{id}", generocontroller.GeneroUpdate).Methods("DELETE")
+	r.HandleFunc("/{id}", generocontroller.GeneroDelete).Methods("DELETE")
 }

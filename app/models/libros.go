@@ -8,6 +8,7 @@ type Libro struct {
 	EditorialId    uint          `gorm:"column:editorial_id;foreignKey:EditorialId" json:"editorial"`
 	LibrosAutor    []LibrosAutor `gorm:"foreignKey:LibroId"`
 	Editorial      Editorial     `gorm:"foreignKey:EditorialId"`
+	Deleted bool `gorm:"column:deleted;default:false" json:"-" `
 }
 
 func (Libro) TableName() string {

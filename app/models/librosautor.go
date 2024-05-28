@@ -5,6 +5,7 @@ type LibrosAutor struct {
     ISBN   string `gorm:"column:isbn" json:"isbn"`
     AutorId uint   `gorm:"column:id_autor;foreignKey:AutorId" json:"id_autor"`
     LibroId string   `gorm:"column:libro_id;foreignKey:LibroId" json:"libro_id"`
+	Deleted bool `gorm:"column:deleted;default:false" json:"-" `
     Libro   Libro  `gorm:"foreignKey:LibroId"`
     Autor   Autor  `gorm:"foreignKey:AutorId"`
 }
