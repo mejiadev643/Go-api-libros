@@ -6,6 +6,7 @@ import (
 	"github.com/mejiadev643/routes/editorial"
 	"github.com/mejiadev643/routes/genero"
 	"github.com/mejiadev643/routes/libro"
+	"github.com/mejiadev643/routes/libroautor"
 	"github.com/mejiadev643/routes/login"
 )
 
@@ -27,5 +28,8 @@ func RegisterRoutes( r *mux.Router) {//aqui se registran todas las rutas que se 
 
 	//ruta libro
 	libro.Routes(r.PathPrefix("/libro").Subrouter())
+
+	//ruta libroautor
+	libroautor.Routes(r.PathPrefix("/libro-autor").Subrouter())
 
 }

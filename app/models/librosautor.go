@@ -10,6 +10,14 @@ type LibrosAutor struct {
     Autor   Autor  `gorm:"foreignKey:AutorId"`
 }
 
+type LibrosAutores struct {
+    Id      int    `json:"id"`
+    ISBN   string `json:"isbn"`
+    LibroId string   `json:"libro_id"`
+    Libro   Libro  `json:"libro"`
+    Autores   []Autor `json:"autores"`
+}
+
 func (LibrosAutor) TableName() string {
     return "libros_autor"
 }
