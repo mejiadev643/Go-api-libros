@@ -45,8 +45,8 @@ func Seed(db *gorm.DB) {
 	}
 	//crear datos de ejemplo para Libro
 	libros := []models.Libro{
-		{ISBN: "978-3-16-148410-0", AñoPublicacion: "2021", NumeroPaginas: 200, GeneroId: 1, EditorialId: 1},
-		{ISBN: "978-3-16-148411-7", AñoPublicacion: "2021", NumeroPaginas: 200, GeneroId: 2, EditorialId: 2},
+		{ISBN: "978-3-16-148410-0", NumeroPaginas: 200, GeneroId: 1, EditorialId: 1},
+		{ISBN: "978-3-16-148411-7", NumeroPaginas: 200, GeneroId: 2, EditorialId: 2},
 	}
 	for _, libro := range libros {
 		if err := db.FirstOrCreate(&libro, libro).Error; err != nil {
