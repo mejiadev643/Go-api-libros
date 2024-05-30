@@ -37,7 +37,7 @@ func LibroAutorShow(w http.ResponseWriter, r *http.Request) {
 	//DB.DB.Where("deleted",false).First(&libro, params["id"])
 	err := DB.DB.Preload("Libro").Preload("Libro.Editorial").
 		Preload("Libro.Genero").
-		Preload("Autores").
+		Preload("Autor").
 		Where("deleted = ?", false).
 		Where("isbn = ?", params["isbn"]).
 		Find(&libro).Error
