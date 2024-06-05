@@ -7,6 +7,7 @@ Para este proyecto se han utilizado los paquetes
 - https://pkg.go.dev/github.com/gorilla/mux
 - https://gorm.io/
 - github.com/go-playground/validator/v10
+- github.com/dgrijalva/jwt-go
 
 
 Y librerias nativas del lenguaje Golang

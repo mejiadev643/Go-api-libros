@@ -18,7 +18,6 @@ func init() {
 }
 
 func LibroIndex(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
 	var libro []models.Libro
 	DB.DB.Preload("Editorial").Preload("Genero").Where("deleted", false).Find(&libro)
 	json.NewEncoder(w).Encode(&libro)
@@ -26,7 +25,6 @@ func LibroIndex(w http.ResponseWriter, r *http.Request) {
 }
 
 func LibroShow(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
 	var libro models.Libro
 	params := mux.Vars(r) // se usa para traer todos los parametros
 	isbn := params["isbn"]
@@ -41,7 +39,6 @@ func LibroShow(w http.ResponseWriter, r *http.Request) {
 }
 
 func LibroCreate(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
 	var libro models.Libro
 	json.NewDecoder(r.Body).Decode(&libro)
 
@@ -100,7 +97,6 @@ func LibroUpdate(w http.ResponseWriter, r *http.Request) {
 }
 
 func LibroDelete(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
 	var libro models.Libro
 	param := mux.Vars(r)
 	err := DB.DB.First(&libro, "isbn = ?",param["isbn"]).Error

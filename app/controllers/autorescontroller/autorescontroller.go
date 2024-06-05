@@ -19,7 +19,6 @@ func init() {
 }
 
 func AutorIndex(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
 	var autor []models.Autor
 	DB.DB.Where("deleted", false).Find(&autor).Order("nombre ASC")
 	json.NewEncoder(w).Encode(&autor)
@@ -27,7 +26,6 @@ func AutorIndex(w http.ResponseWriter, r *http.Request) {
 }
 
 func AutorShow(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
 	var autor models.Autor
 	params := mux.Vars(r) // se usa para traer todos los parametros
 	DB.DB.Where("deleted",false).First(&autor, params["id"])
@@ -40,7 +38,6 @@ func AutorShow(w http.ResponseWriter, r *http.Request) {
 }
 
 func AutorCreate(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
 	var autor models.Autor
 	json.NewDecoder(r.Body).Decode(&autor)
 
@@ -59,7 +56,6 @@ func AutorCreate(w http.ResponseWriter, r *http.Request) {
 }
 
 func AutorUpdate(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
 	var autor models.Autor
 	param := mux.Vars(r)
 	DB.DB.Where("deleted",false).First(&autor, param["id"])
@@ -82,7 +78,6 @@ func AutorUpdate(w http.ResponseWriter, r *http.Request) {
 }
 
 func AutorDelete(w http.ResponseWriter, r *http.Request) {
-    w.Header().Set("Content-Type", "application/json")
     var autor models.Autor
     param := mux.Vars(r)
     DB.DB.First(&autor, param["id"])

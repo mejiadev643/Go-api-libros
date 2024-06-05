@@ -19,7 +19,6 @@ func init() {
 }
 
 func EditorialIndex(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
 	var editorial []models.Editorial
 	DB.DB.Where("deleted", false).Find(&editorial).Order("nombre ASC")
 	json.NewEncoder(w).Encode(&editorial)
@@ -27,7 +26,6 @@ func EditorialIndex(w http.ResponseWriter, r *http.Request) {
 }
 
 func EditorialShow(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
 	var editorial models.Editorial
 	params := mux.Vars(r) // se usa para traer todos los parametros
 	DB.DB.Where("deleted",false).First(&editorial, params["id"])
@@ -40,7 +38,6 @@ func EditorialShow(w http.ResponseWriter, r *http.Request) {
 }
 
 func EditorialCreate(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
 	var editorial models.Editorial
 	json.NewDecoder(r.Body).Decode(&editorial)
 
@@ -59,7 +56,6 @@ func EditorialCreate(w http.ResponseWriter, r *http.Request) {
 }
 
 func EditorialUpdate(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
 	var editorial models.Editorial
 	param := mux.Vars(r)
 	DB.DB.Where("deleted",false).First(&editorial, param["id"])
@@ -82,7 +78,6 @@ func EditorialUpdate(w http.ResponseWriter, r *http.Request) {
 }
 
 func EditorialDelete(w http.ResponseWriter, r *http.Request) {
-    w.Header().Set("Content-Type", "application/json")
     var editorial models.Editorial
     param := mux.Vars(r)
     DB.DB.First(&editorial, param["id"])

@@ -18,7 +18,6 @@ func init() {
 }
 
 func GeneroIndex(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
 	var generos []models.Genero
 	DB.DB.Where("deleted",false).Find(&generos)
 	json.NewEncoder(w).Encode(&generos)
@@ -26,7 +25,6 @@ func GeneroIndex(w http.ResponseWriter, r *http.Request) {
 }
 
 func GeneroShow(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
 	var genero models.Genero
 	params := mux.Vars(r) // se usa para traer todos los parametros
 	DB.DB.Where("deleted",false).First(&genero, params["id"])
@@ -39,7 +37,6 @@ func GeneroShow(w http.ResponseWriter, r *http.Request) {
 }
 
 func GeneroCreate(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
 	var genero models.Genero
 	json.NewDecoder(r.Body).Decode(&genero)
 
@@ -58,7 +55,6 @@ func GeneroCreate(w http.ResponseWriter, r *http.Request) {
 }
 
 func GeneroUpdate(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
 	var genero models.Genero
 	param := mux.Vars(r)
 	DB.DB.Where("deleted",false).First(&genero, param["id"])
@@ -81,7 +77,6 @@ func GeneroUpdate(w http.ResponseWriter, r *http.Request) {
 }
 
 func GeneroDelete(w http.ResponseWriter, r *http.Request) {
-    w.Header().Set("Content-Type", "application/json")
     var genero models.Genero
     param := mux.Vars(r)
     DB.DB.First(&genero, param["id"])

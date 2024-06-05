@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
+	"github.com/mejiadev643/app/controllers/login"
 )
 
 func Hello(w http.ResponseWriter, r *http.Request) {
@@ -12,4 +13,5 @@ func Hello(w http.ResponseWriter, r *http.Request) {
 
 func Routes( r *mux.Router) {
 	r.HandleFunc("", Hello).Methods("GET")
+	r.HandleFunc("/login", login.Login).Methods("POST")
 }
