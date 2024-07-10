@@ -12,7 +12,7 @@ func CreateToken(user estucturas.Login) (string, error) {
 	println(user.Email)
 	println(user.Password)
 	var userData models.UserStruct
-	DB.DB.Where("email = ? AND password = ?", user.Email, user.Password).First(&userData)
+	DB.DB.Preload("Descriptions").Where("email = ? AND password = ?", user.Email, user.Password).First(&userData)
 
 	// Create the Claims// equal to the payload
 	claims := jwt.MapClaims{}
